@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhi S Gowda - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Nidhi S Gowda</h1>
+            <p>UI/UX Designer & Frontend Developer</p>
+            <nav>
+                <a href="#about" class="scroll-link">About</a>
+                <a href="#skills" class="scroll-link">Skills</a>
+                <a href="#projects" class="scroll-link">Projects</a>
+                <a href="#contact" class="scroll-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="typewriter" class="typewriter">
+        <div class="container">
+            <h1 id="typewriter-text"></h1>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container glass about-container">
+            <div class="profile-photo" onclick="displayPortfolio()"> <!-- Trigger portfolio display -->
+                <img src="profile.jpg" alt="Nidhi S Gowda Profile Photo">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>✨ Passionate about creating intuitive, user-centered designs that transform complex problems into beautiful solutions.
+
+                    💻 With a background in frontend development, I bridge the gap between design and functionality.
+                    
+                    🌟 Always exploring the latest trends in UI/UX, I’m excited to connect and build something amazing together!
+                    
+                    </p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skill-card">
+                <div class="flip-card" onclick="flipCard(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3><i class="fas fa-pencil-alt"></i> Design</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <ul>
+                                <li>
+                                    <img src="figma.png" alt="Figma" width="20px"> Figma
+                                </li>
+                                <li>
+                                    <img src="adobe_xd.png" alt="Adobe XD" width="20px"> Adobe XD
+                                </li>
+                                <li>
+                                    <img src="sketch.png" alt="Sketch" width="20px"> Sketch
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" onclick="flipCard(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3><i class="fas fa-code"></i> Frontend</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <ul>
+                                <li><i class="fab fa-html5"></i> HTML/CSS</li>
+                                <li><i class="fab fa-js"></i> JavaScript</li>
+                                <li><i class="fab fa-python"></i> Python</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="download-cv">
+            <a href="NIDHI_resume.docx.pdf" class="download-button" download>Download CV</a>
+        </div>
+    </section>
+        
+    <section id="projects" class="projects">
+        <div class="container glass">
+            <h2>My Projects</h2>
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Local Chatapp</p>
+                <a href="https://github.com/NidhiGowda22/Local_Chatapp" class="click-here button" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Agricultural Crop Image Classification</p>
+                <a href="https://github.com/NidhiGowda22/Agricultural-crop-image-classification" class="click-here button" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <a href="#" class="contact-button">Contact Me</a>
+    </section>
+    
+    <!-- Modal Structure -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Contact Information</h2>
+            <p>Thank you for your interest in contacting me! Please reach out via email at <strong>nidhisethuprakash@gmail.com</strong>. I look forward to hearing from you!</p>
+            <a href="mailto:nidhisethuprakash@gmail.com" class="modal-button">Send Email</a>
+        </div>
+    </div>    
+    <footer>
+        <p>© 2024 Nidhi S Gowda</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

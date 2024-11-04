@@ -1,0 +1,362 @@
+@font-face {
+    font-family: 'nothingFont';
+    src: url('fonts/nothing-font.ttf') format('truetype');
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'nothingFont', sans-serif;
+}
+
+/* Define the body with a background gradient */
+body {
+    background: radial-gradient(circle at center, 
+    rgba(255, 249, 180, 0.8) 0%, 
+    rgba(169, 99, 255, 0.7) 40%, 
+    rgba(140, 140, 252, 0.7) 70%, 
+    rgba(238, 238, 253, 1) 100%);
+    
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow: auto;
+    perspective: 1000px;
+    position: relative;
+}
+
+/* Add a lighting effect layer */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--x-pos, 50%) var(--y-pos, 50%), 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0.2) 20%, 
+    rgba(0, 0, 0, 0) 60%);
+    pointer-events: none;
+    transition: background-position 0.2s ease;
+}
+
+/* Text elements for depth effect */
+h1, h2, p, a {
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
+    transform: translateZ(20px);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+h1:hover, h2:hover, p:hover, a:hover {
+    transform: translateZ(40px);
+    text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust position of light effect based on mouse movement */
+body:hover::before {
+    --x-pos: var(--mouse-x, 50%);
+    --y-pos: var(--mouse-y, 50%);
+}
+
+header {
+    background-color: none;
+    color: rgb(19, 19, 19);
+    padding: 20px 0;
+    text-align: center;
+}
+/* Navigation links styles */
+header nav a {
+    color: #ffffff; /* Change to your desired color */
+    text-decoration: none; /* Removes underline */
+    margin: 0 15px; /* Spacing between links */
+    font-size: 18px; /* Font size for links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+header nav a:hover {
+    color: #33023b; /* Change color on hover (gold color) */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #B2A4FF;
+}
+
+/* Smooth Scroll Link */
+.scroll-link {
+    cursor: pointer;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin: 20px 0; /* Added margin to sections for spacing */
+}
+
+/* Skills Section with Flip Cards */
+.skill-card {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background-color: transparent;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-back {
+    background-color: #660e9a;
+    color: white;
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-card ul li {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the icon and text */
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+.skill-card ul li img {
+    margin-right: 10px; /* Space between icon and text */
+    width: 20px; /* Adjust icon size */
+}
+
+
+/* Flip Card when clicked */
+.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Download CV Button */
+.download-cv {
+    margin-top: 20px; /* Space above the button */
+    text-align: center; /* Center the button */
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6C63FF; /* Change color as needed */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #6C63FF; /* Change color on hover */
+}
+
+/* About Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.profile-photo {
+    flex: 0 0 80px; /* Fixes the size of the profile image container */
+    margin-right: 20px;
+}
+
+.profile-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;  /* Ensures the image fits well inside the circle */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow to the profile image */
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    margin: 40px 0; /* Adjusted margin for spacing */
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6C63FF; /* Change color as needed */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #2c3e50; /* Change color on hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #2980b9;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #3498db;
+}
+/* Footer */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #6C63FF; /* Change as needed */
+    color: white;
+}
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.project-card {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #6C63FF; /* Button color */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Transition for hover effect */
+}
+
+.button:hover {
+    background-color: #5a54e3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+.button:active {
+    transform: scale(0.95); /* Slight scale down on click */
+}
